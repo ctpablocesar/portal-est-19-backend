@@ -50,7 +50,8 @@ const actualizarAnuncio = async (req, res = response) => {
         }
 
         const nuevoAnuncio = {
-            ...req.body
+            ...req.body,
+            'fecha': (Date.now())
         }
 
         const anuncioActualizado = await Anuncio.findByIdAndUpdate(anuncioId, nuevoAnuncio, { new: true });
