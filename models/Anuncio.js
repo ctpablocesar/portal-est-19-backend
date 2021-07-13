@@ -18,6 +18,10 @@ const AnuncioSchema = Schema({
         type: String,
         required: true
     },
+    tituloImagen: {
+        type: String,
+        required: true
+    },
     status: {
         type: Boolean,
         default: true

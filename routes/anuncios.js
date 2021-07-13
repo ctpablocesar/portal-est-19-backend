@@ -2,7 +2,7 @@ const { Router, response } = require('express');
 const { validarJWT } = require('../middlewares/validar-jwt');
 
 const { validarCampos } = require('../middlewares/validar-campos');
-const { getAnuncios, crearAnuncio, actualizarAnuncio, eliminarAnuncio} = require('../controllers/anuncios');
+const { getAnuncios, crearAnuncio, actualizarAnuncio, eliminarAnuncio } = require('../controllers/anuncios');
 const { check } = require('express-validator');
 const { isDate } = require('../helpers/isDate');
 
@@ -17,6 +17,7 @@ router.post('/',
         check('titulo', 'Titulo del anuncio es obligatorio').not().isEmpty(),
         check('descripcion', 'Descripción del anuncio es obligatoria').not().isEmpty(),
         check('imagen', 'La imagen es obligatoria').not().isEmpty(),
+        check('tituloImagen', 'El titulo de la imagen es obligatorio').not().isEmpty(),
         validarCampos
     ]
     , crearAnuncio);
