@@ -17,6 +17,7 @@ router.post('/',
         check('titulo', 'Titulo de la noticia es obligatorio').not().isEmpty(),
         check('descripcion', 'Descripción de la noticia es obligatoria').not().isEmpty(),
         check('imagen', 'La imagen es obligatoria').not().isEmpty(),
+        check('tituloImagen', 'El titulo de la imagen es obligatorio').not().isEmpty(),
         validarCampos
     ]
     , crearNoticia);
