@@ -1,16 +1,15 @@
-const { Router, response } = require('express');
+const { Router } = require('express');
 const { validarJWT } = require('../middlewares/validar-jwt');
 
 const { validarCampos } = require('../middlewares/validar-campos');
 const { getAnuncios, crearAnuncio, actualizarAnuncio, eliminarAnuncio } = require('../controllers/anuncios');
 const { check } = require('express-validator');
-const { isDate } = require('../helpers/isDate');
 
 const router = Router();
 
-router.use(validarJWT);
-
 router.get('/', getAnuncios);
+
+router.use(validarJWT);
 
 router.post('/',
     [
