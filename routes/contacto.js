@@ -8,9 +8,9 @@ const { isDate } = require('../helpers/isDate');
 
 const router = Router();
 
-router.use(validarJWT);
-
 router.get('/', getContacto);
+
+router.use(validarJWT);
 
 router.post('/',
     [
