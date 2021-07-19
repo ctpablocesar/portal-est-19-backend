@@ -2,7 +2,7 @@ const { Router, response } = require('express');
 const { validarJWT } = require('../middlewares/validar-jwt');
 
 const { validarCampos } = require('../middlewares/validar-campos');
-const { getContacto, crearContacto, actualizarContacto, eliminarContacto} = require('../controllers/contacto');
+const { getContacto, crearContacto, actualizarContacto, eliminarContacto } = require('../controllers/contacto');
 const { check } = require('express-validator');
 const { isDate } = require('../helpers/isDate');
 
@@ -10,7 +10,6 @@ const router = Router();
 
 router.get('/', getContacto);
 
-router.use(validarJWT);
 
 router.post('/',
     [
@@ -21,6 +20,8 @@ router.post('/',
         validarCampos
     ]
     , crearContacto);
+
+router.use(validarJWT);
 
 router.put('/:id', actualizarContacto);
 

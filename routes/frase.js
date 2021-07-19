@@ -14,7 +14,6 @@ router.use(validarJWT);
 
 router.post('/',
     [
-        check('mes', 'Mes de la frase obligatorio').not().isEmpty(),
         check('imagen', 'La imagen es obligatoria').not().isEmpty(),
         check('titulo', 'Titulo de la frase es obligatoria').not().isEmpty(),
         check('frase', 'El cuerpo de la frase es obligatorio').not().isEmpty(),

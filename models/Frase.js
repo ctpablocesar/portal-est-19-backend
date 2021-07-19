@@ -2,10 +2,6 @@ const { Schema, model } = require('mongoose');
 
 const FraseSchema = Schema({
 
-    mes: {
-        type: String,
-        required: true
-    },
     imagen: {
         type: String,
         required: true
