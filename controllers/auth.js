@@ -41,7 +41,7 @@ const crearUsuario = async (req, res = response) => {
     }
 
 };
-//TODO: el inicio de sesion si
+
 const loginUsuario = async (req, res = response) => {
 
     const { email, password } = req.body;
@@ -53,7 +53,7 @@ const loginUsuario = async (req, res = response) => {
         if (!usuario) {
             return res.status(400).json({
                 ok: false,
-                msg: 'El usuario no existe con ese email'
+                msg: 'Correo o contraseña incorrectos'
             });
         }
 
@@ -63,7 +63,7 @@ const loginUsuario = async (req, res = response) => {
         if (!validPassword) {
             return res.status(400).json({
                 ok: false,
-                msg: 'Password incorrecto'
+                msg: 'Correo o contraseña incorrectos'
             });
         }
 
