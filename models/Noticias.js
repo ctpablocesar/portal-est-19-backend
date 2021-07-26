@@ -10,6 +10,9 @@ const NoticiaSchema = Schema({
         type: String,
         required: true
     },
+    link: {
+        type: String
+    },
     fecha: {
         type: Date,
         default: Date.now
