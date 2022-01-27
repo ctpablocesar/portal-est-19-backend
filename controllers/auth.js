@@ -8,7 +8,7 @@ const crearUsuario = async (req, res = response) => {
     const { email, password } = req.body;
 
     try {
-        let usuario = await Usuario.findOne({ email: email });
+        const usuario = await Usuario.findOne({ email: email });
 
         if (usuario) {
             return res.status(400).json({
@@ -85,7 +85,6 @@ const loginUsuario = async (req, res = response) => {
     }
 
 };
-// TODO: no sirve revalidar token
 const revalidarToken = async(req, res = response) => {
 
     const { uid, name } = req;
