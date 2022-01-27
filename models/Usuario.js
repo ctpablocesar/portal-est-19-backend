@@ -6,10 +6,6 @@ const UsuarioSchema = Schema({
         type: String,
         requiredd: true
     },
-    tipo: {
-        type: String,
-        requiredd: true
-    },
     email: {
         type: String,
         required: true,

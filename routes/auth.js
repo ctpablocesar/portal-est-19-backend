@@ -8,7 +8,6 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { crearUsuario, loginUsuario, revalidarToken } = require('../controllers/auth');
 const { validarJWT } = require('../middlewares/validar-jwt');
-const { isType } = require('../helpers/isType');
 
 const router = Router();
 
@@ -16,9 +15,8 @@ router.post(
     '/new',
     [
         check('name', 'El nombre es obligatorio').not().isEmpty(),
-        check('rol', 'El rol es obligatorio').custom( isType ),
-        check('email', 'El correo es obligatorio').isEmail(),
-        check('password', 'La contraseña debe de ser de minimo 6 caracteres').isLength({ min: 6 }),
+        check('email', 'El nombre es obligatorio').isEmail(),
+        check('password', 'El passwor debe de ser de 6 caracteres').isLength({ min: 6 }),
         validarCampos
     ],
     crearUsuario);
@@ -27,7 +25,7 @@ router.post(
     '/',
     [
         check('email', 'El email no es valido').isEmail(),
-        check('password', 'Error').not().isEmpty(),
+        check('password', 'El passwor debe de ser de 6 caracteres').isLength({ min: 6 }),
         validarCampos
     ],
     loginUsuario);
